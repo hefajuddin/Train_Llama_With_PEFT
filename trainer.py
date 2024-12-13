@@ -4,6 +4,7 @@ from src.pretrained_model import pretrained_model
 from src.tokenized_model import tokenized_dataset
 from src.collator import data_collator
 from src.tokenized_model import tokenizer
+from src.lora_config import model
 
 from transformers import Trainer, TrainingArguments
 
@@ -23,7 +24,7 @@ training_args = TrainingArguments(
 )
 
 trainer = Trainer(
-    model=pretrained_model,
+    model=model,
     args=training_args,
     train_dataset=tokenized_dataset["train"],
     eval_dataset=tokenized_dataset["validation"],
